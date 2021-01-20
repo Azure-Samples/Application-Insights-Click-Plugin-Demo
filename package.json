@@ -1,0 +1,42 @@
+{
+  "name": "application-insights-click-plugin-demo",
+  "version": "1.0.0",
+  "description": "Sample web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "browserify": "browserify ./public/dist/appinsights.js -o ./public/dist/bundle.js",
+    "tsc": "tsc --outDir ./public/dist ./public/ts/appinsights.ts",
+    "build": "npm run tsc && npm run browserify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azure-Samples/Application-Insights-Click-Plugin-Demo.git"
+  },
+  "keywords": [
+    "ApplicationInsights-JS",
+    "ClickPlugin",
+    "Extension",
+    "Click",
+    "Extension",
+    "Azure",
+    "Monitor",
+    "Application",
+    "Insights"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Azure-Samples/Application-Insights-Click-Plugin-Demo/issues"
+  },
+  "homepage": "https://github.com/Azure-Samples/Application-Insights-Click-Plugin-Demo#readme",
+  "dependencies": {
+    "@microsoft/applicationinsights-clickanalytics-js": "^2.5.11",
+    "@microsoft/applicationinsights-web": "^2.5.11",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "typescript": "^4.1.2"
+  }
+}

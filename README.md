@@ -1,57 +1,39 @@
-# Project Name
+# Application Insights JS with Click Analytics Plugin - HTML sample
 
-(short, 1-3 sentenced, description of the project)
+This is a simple HTML/CSS/JS web app that illustrates how to enable Application Insights Click Analytics Plugin
 
-## Features
+It is built on the [Carousel template](http://getbootstrap.com/examples/carousel) by [Bootstrap](http://getbootstrap.com).
 
-This project framework provides the following features:
+## Pre-requisites 
 
-* Feature 1
-* Feature 2
-* ...
+1. [Git](https://docs.microsoft.com/en-us/azure/devops/learn/git/install-and-set-up-git) and [Node.js](https://docs.microsoft.com/en-us/windows/nodejs/setup-on-windows) installed on your computer.
+2. Familiarity with editing text and code files in any text editor.
 
-## Getting Started
+## Get Started
 
-### Prerequisites
+1.  Create an Application Insights resource in Azure by following [these instructions](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript?toc=/azure/azure-monitor/toc.json).
 
-(ideally very short, if any)
+2.  Open terminal and clone the repo using `git clone` 
 
-- OS
-- Library version
-- ...
+3.  Grab the Instrumentation Key (aka "ikey") from the resource you created in step 1. Later, you'll add it to the instrumentationKey setting in the `public/ts/appinsights.ts` file
 
-### Installation
+4.  In the project directory you should run `npm install` on your terminal to install all the dependencies.
 
-(ideally very short)
+5.  After making the changes in step-3, please run `npm run build` on your terminal to transpile and browserify the `appinsights.ts` file
 
-- npm install [package name]
-- mvn install
-- ...
+6.  To launch the app locally , simply run the following command on your terminal
 
-### Quickstart
-(Add steps to get up and running quickly)
+    `node index.js`
 
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
+7. 	Open your favorite browser and go to http://localhost:8000/
 
 
-## Demo
+## Correlating HTML tags with telemetry data.
 
-A demo app is included to show how to use the project.
+### How to see the telemetry data generated from client side?
 
-To run the demo, follow these steps:
+1. In the same tab where you have the sample app running, open the 'Developer tools' and go to 'Network' tab.
+2. Start clicking different navigation buttons like 'Home', 'About' etc.
+3. After around 15s, you should see 'track' events in the network tab as shown below.
 
-(Add steps to start up the demo)
-
-1.
-2.
-3.
-
-## Resources
-
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
+:::image type="content" source="img/NetwrokTab.PNG" alt-text="Screenshot of the Network Tab.":::
