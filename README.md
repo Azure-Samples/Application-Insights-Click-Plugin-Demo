@@ -36,4 +36,4 @@ It is built on the [Carousel template](http://getbootstrap.com/examples/carousel
 2. Start clicking different navigation buttons like 'Home', 'About' etc.
 3. After around 15s, you should see 'track' events in the network tab as shown below.
 
-:::image type="content" source="doc-img/networktab.png" alt-text="Screenshot of the Network Tab.":::
+<img src="./doc-img/networktab.png" alt="networktab"/>
