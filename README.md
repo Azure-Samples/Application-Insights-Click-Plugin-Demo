@@ -30,10 +30,45 @@ It is built on the [Carousel template](http://getbootstrap.com/examples/carousel
 
 ## Correlating HTML tags with telemetry data.
 
-### How to see the telemetry data generated from client side?
+### How to see the telemetry data generated?
 
-1. In the same tab where you have the sample app running, open the 'Developer tools' and go to 'Network' tab.
-2. Start clicking different navigation buttons like 'Home', 'About' etc.
-3. After around 15s, you should see 'track' events in the network tab as shown below.
+1. Please go to Application Insights instance in the Azure portal.
+2. On the left hand side of the portal , looking for 'Logs' unders the 'Monitoring' section. Double-click to open 'Logs'
+3. Run a simple [Kusto](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/concepts/) query to fetch the latest records from the 'customEvents' table as shown below(change the date accordingly): 
+```
+customEvents
+| where timestamp > datetime(2021-01-20) and timestamp < datetime(2021-01-21)
+``` 
+### Custom Event 'Name'
 
-<img src="./doc-img/networktab.png" alt="networktab"/>
+Following is an example illustrating how the click event on 'Home' button has generated a new record with `name` 'HomeButton' in 'customEvents' table of Application Insights.
+
+<img src="./doc-img/homebutton_html.PNG" alt="Home button html" />
+<br/>
+<img src="./doc-img/homebutton_kusto.PNG" alt="Home button kusto" />
+
+### Custom Event 'parentId'
+
+Following is an example illustrating how the click event on 'Home' button has generated a new record with `parentId` 'navbar-wrapper' in 'customEvents' table of Application Insights.
+
+<img src="./doc-img/parentid_html.PNG" alt="parentid html" />
+<br/>
+<img src="./doc-img/parentid_kusto.PNG" alt="parentid kusto" />
+
+### Custom Event with custom data in 'content'
+
+Following is an example illustrating how the click event on 'About' button has generated a new record with `content` values {"foo"="bar"} in 'customEvents' table of Application Insights.
+
+<img src="./doc-img/datacustom_foo_html.PNG" alt="data custom html" />
+<br/>
+<img src="./doc-img/datacustom_foo_kusto.PNG" alt="data custom kusto" />
+
+### Custom Event 'behavior'
+
+Following is an example illustrating how the click event on 'About' button has generated a new record with `behavior` value '2' in 'customEvents' table of Application Insights.
+
+> If you are wondering how 'Navigator' in html event translated to '2' in Kusto table, `BehaviorMapValidator` which took the `behaviorMap` as input has done this mapping. 
+
+<img src="./doc-img/behavior_html.PNG" alt="behavior html" />
+<br/>
+<img src="./doc-img/behavior_kusto.PNG" alt="behavior kusto" />
