@@ -11,17 +11,17 @@ It is built on the [Carousel template](http://getbootstrap.com/examples/carousel
 
 ## Get Started
 
-1.  Create an Application Insights resource in Azure by following [these instructions](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript?toc=/azure/azure-monitor/toc.json).
+1. Create an Application Insights resource in Azure by following [these instructions](https://docs.microsoft.com/en-us/azure/azure-monitor/app/create-workspace-resource).
 
-2.  Open terminal and clone the repo using `git clone` 
+2. Open terminal and clone the repo using `git clone` 
 
-3.  Grab the Instrumentation Key (aka "ikey") from the resource you created in step 1. Later, you'll add it to the instrumentationKey setting in the `public/ts/appinsights.ts` file
+3. Grab the Instrumentation Key (aka "ikey") from the resource you created in step 1. Later, you'll add it to the instrumentationKey setting in the `public/ts/appinsights.ts` file
 
-4.  In the project directory you should run `npm install` on your terminal to install all the dependencies.
+4. In the project directory you should run `npm install` on your terminal to install all the dependencies.
 
-5.  After making the changes in step-3, please run `npm run build` on your terminal to transpile and browserify the `appinsights.ts` file
+5. After making the changes in step-3, please run `npm run build` on your terminal to transpile and browserify the `appinsights.ts` file
 
-6.  To launch the app locally , simply run the following command on your terminal
+6. To launch the app locally , simply run the following command on your terminal
 
     `node index.js`
 
@@ -32,8 +32,8 @@ It is built on the [Carousel template](http://getbootstrap.com/examples/carousel
 
 ### How to see the telemetry data generated?
 
-1. Please go to Application Insights instance in the Azure portal.
-2. On the left hand side of the portal , looking for 'Logs' unders the 'Monitoring' section. Double-click to open 'Logs'
+1. Please go to Application Insights resource in the Azure portal.
+2. On the left hand side of the portal , looking for 'Logs' unders the 'Monitoring' section and click to open 'Logs'.
 3. Run a simple [Kusto](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/concepts/) query to fetch the latest records from the 'customEvents' table as shown below(change the date accordingly): 
 ```
 customEvents
